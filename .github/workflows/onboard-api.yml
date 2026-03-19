@@ -1,0 +1,26 @@
+name: Onboard Loan Origination API
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'specs/loan-origination-api-openapi.yaml'
+      - '.github/workflows/onboard-api.yml'
+
+jobs:
+  onboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Import spec to Postman
+        run: |
+          SPEC_CONTENT=$(cat specs/loan-origination-api-openapi.yaml)
+          echo "Importing Loan Origination API spec to Postman..."
+          curl -X POST https://api.getpostman.com/apis \
+            -H "X-API-Key: ${{ secrets.POSTMAN_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"type":"openapi3","input":"'"${SPEC_CONTENT}"'","name":"Loan Origination API"}'
+          echo "Spec imported successfully"
