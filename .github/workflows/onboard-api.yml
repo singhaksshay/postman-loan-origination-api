@@ -16,11 +16,13 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Import spec to Postman
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
         run: |
           SPEC_CONTENT=$(cat specs/loan-origination-api-openapi.yaml)
           echo "Importing Loan Origination API spec to Postman..."
           curl -X POST https://api.getpostman.com/apis \
-            -H "X-API-Key: ${{ secrets.POSTMAN_API_KEY }}" \
+            -H "X-API-Key: ${POSTMAN_API_KEY}" \
             -H "Content-Type: application/json" \
             -d '{"type":"openapi3","input":"'"${SPEC_CONTENT}"'","name":"Loan Origination API"}'
           echo "Spec imported successfully"
