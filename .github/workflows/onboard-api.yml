@@ -10,19 +10,24 @@ on:
 jobs:
   onboard:
     runs-on: ubuntu-latest
-    
+    permissions:
+      actions: write
+      contents: write
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Import spec to Postman
-        env:
-          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
-        run: |
-          SPEC_CONTENT=$(cat specs/loan-origination-api-openapi.yaml)
-          echo "Importing Loan Origination API spec to Postman..."
-          curl -X POST https://api.getpostman.com/apis \
-            -H "X-API-Key: ${POSTMAN_API_KEY}" \
-            -H "Content-Type: application/json" \
-            -d '{"type":"openapi3","input":"'"${SPEC_CONTENT}"'","name":"Loan Origination API"}'
-          echo "Spec imported successfully"
+      - uses: actions/checkout@v4
+
+      - uses: postman-cs/postman-api-onboarding-action@v0
+        with:
+          project-name: loan-origination-api
+          domain: lending
+          domain-code: LND
+          requester-email: singhaksshay@icloud.com
+          spec-url: https://raw.githubusercontent.com/singhaksshay/postman-loan-origination-api/main/specs/loan-origination-api-openapi.yaml
+          environments-json: '["prod","staging","dev"]'
+          env-runtime-urls-json: '{"prod":"https://lending-api.example.com/v1","staging":"https://lending-api-staging.example.com/v1","dev":"https://lending-api-dev.example.com/v1"}'
+          generate-ci-workflow: false
+          postman-api-key: ${{ secrets.POSTMAN_API_KEY }}
+          postman-access-token: ${{ secrets.POSTMAN_ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          gh-fallback-token: ${{ secrets.GH_FALLBACK_TOKEN }}
