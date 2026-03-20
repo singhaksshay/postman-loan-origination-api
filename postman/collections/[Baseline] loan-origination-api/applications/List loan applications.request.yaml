@@ -1,0 +1,70 @@
+type: http
+name: List loan applications
+url: '{{baseUrl}}/applications?status=withdrawn&productType=personal_loan&limit=25&offset=0'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: status
+    value: withdrawn
+    description: Filter by application status
+  - key: productType
+    value: personal_loan
+    description: Filter by loan product type
+  - key: limit
+    value: '25'
+  - key: offset
+    value: '0'
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "data": [
+              {
+                "id": "string",
+                "applicantId": "string",
+                "productType": "string",
+                "requestedAmount": 2042.514150725625,
+                "termMonths": 4428,
+                "status": "denied",
+                "createdAt": "1976-07-06T13:03:05.635Z",
+                "updatedAt": "2024-03-28T08:30:44.560Z",
+                "underwritingResult": {
+                  "applicationId": "string",
+                  "status": "in_progress",
+                  "decision": "denied",
+                  "riskScore": 74,
+                  "evaluatedAt": "1996-12-22T03:31:16.385Z"
+                }
+              },
+              {
+                "id": "string",
+                "applicantId": "string",
+                "productType": "string",
+                "requestedAmount": 9796.936076746782,
+                "termMonths": 2600,
+                "status": "denied",
+                "createdAt": "2011-03-03T19:46:03.369Z",
+                "updatedAt": "2010-05-26T03:35:29.720Z",
+                "underwritingResult": {
+                  "applicationId": "string",
+                  "status": "failed",
+                  "decision": "approved",
+                  "riskScore": 66,
+                  "evaluatedAt": "1988-11-10T16:48:04.036Z"
+                }
+              }
+            ],
+            "total": 254,
+            "limit": 8380,
+            "offset": 6389
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: List of applications

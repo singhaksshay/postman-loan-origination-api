@@ -1,0 +1,46 @@
+type: http
+name: Upload a document
+url: '{{baseUrl}}/applications/:applicationId/documents'
+method: POST
+headers:
+  - key: Content-Type
+    value: multipart/form-data
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: applicationId
+    value: string
+body:
+  type: formdata
+  content:
+    - key: file
+      type: file
+    - key: documentType
+      value: employment_letter
+      type: text
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "string",
+            "applicationId": "string",
+            "documentType": "string",
+            "fileName": "string",
+            "uploadedAt": "2012-01-11T10:44:43.227Z",
+            "verificationStatus": "pending"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Document uploaded successfully
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: text
+        content: ''
+    name: Invalid document or unsupported format
