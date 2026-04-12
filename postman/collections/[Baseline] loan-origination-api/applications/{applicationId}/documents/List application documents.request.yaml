@@ -21,15 +21,15 @@ examples:
               "applicationId": "string",
               "documentType": "string",
               "fileName": "string",
-              "uploadedAt": "1999-07-18T05:31:44.438Z",
-              "verificationStatus": "pending"
+              "uploadedAt": "1987-04-05T10:32:24.282Z",
+              "verificationStatus": "rejected"
             },
             {
               "id": "string",
               "applicationId": "string",
               "documentType": "string",
               "fileName": "string",
-              "uploadedAt": "1991-04-06T05:20:29.023Z",
+              "uploadedAt": "1980-04-01T00:04:13.183Z",
               "verificationStatus": "rejected"
             }
           ]

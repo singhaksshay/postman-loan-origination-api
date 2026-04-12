@@ -30,8 +30,8 @@ examples:
             "applicationId": "string",
             "documentType": "string",
             "fileName": "string",
-            "uploadedAt": "2012-01-11T10:44:43.227Z",
-            "verificationStatus": "pending"
+            "uploadedAt": "1972-07-30T14:41:07.808Z",
+            "verificationStatus": "rejected"
           }
       headers:
         - key: Content-Type

@@ -82,15 +82,15 @@ examples:
               "applicationId": "string",
               "documentType": "string",
               "fileName": "string",
-              "uploadedAt": "1961-03-02T08:54:52.051Z",
-              "verificationStatus": "rejected"
+              "uploadedAt": "1974-05-01T22:50:52.446Z",
+              "verificationStatus": "verified"
             },
             {
               "id": "string",
               "applicationId": "string",
               "documentType": "string",
               "fileName": "string",
-              "uploadedAt": "2010-12-07T05:00:10.681Z",
+              "uploadedAt": "1954-05-21T13:44:44.995Z",
               "verificationStatus": "verified"
             }
           ]

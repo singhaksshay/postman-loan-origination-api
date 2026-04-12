@@ -16,7 +16,7 @@ body:
     - key: file
       type: file
     - key: documentType
-      value: tax_return
+      value: bank_statement
       type: text
 scripts:
   - type: afterResponse
@@ -48,7 +48,7 @@ examples:
             "applicationId": "string",
             "documentType": "string",
             "fileName": "string",
-            "uploadedAt": "2000-01-12T08:43:21.301Z",
+            "uploadedAt": "2016-07-17T15:00:45.460Z",
             "verificationStatus": "pending"
           }
       headers:

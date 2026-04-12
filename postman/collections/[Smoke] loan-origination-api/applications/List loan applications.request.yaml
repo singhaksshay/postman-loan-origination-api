@@ -1,6 +1,6 @@
 type: http
 name: List loan applications
-url: '{{baseUrl}}/applications?status=denied&productType=business_loan&limit=25&offset=0'
+url: '{{baseUrl}}/applications?status=denied&productType=home_equity&limit=25&offset=0'
 method: GET
 headers:
   - key: Accept
@@ -10,7 +10,7 @@ queryParams:
     value: denied
     description: Filter by application status
   - key: productType
-    value: business_loan
+    value: home_equity
     description: Filter by loan product type
   - key: limit
     value: '25'
@@ -47,40 +47,40 @@ examples:
                 "id": "string",
                 "applicantId": "string",
                 "productType": "string",
-                "requestedAmount": 7449.694412777796,
-                "termMonths": 9601,
-                "status": "withdrawn",
-                "createdAt": "1966-12-27T19:49:35.728Z",
-                "updatedAt": "1982-07-12T08:10:00.257Z",
+                "requestedAmount": 1338.5171814247587,
+                "termMonths": 5632,
+                "status": "under_review",
+                "createdAt": "2001-06-05T19:44:23.194Z",
+                "updatedAt": "1953-01-18T04:12:10.902Z",
                 "underwritingResult": {
                   "applicationId": "string",
-                  "status": "failed",
-                  "decision": "referred_to_manual",
-                  "riskScore": 60,
-                  "evaluatedAt": "2011-11-08T22:39:37.329Z"
+                  "status": "in_progress",
+                  "decision": "denied",
+                  "riskScore": 56,
+                  "evaluatedAt": "1955-05-11T09:22:59.213Z"
                 }
               },
               {
                 "id": "string",
                 "applicantId": "string",
                 "productType": "string",
-                "requestedAmount": 9493.8027508631,
-                "termMonths": 2683,
-                "status": "approved",
-                "createdAt": "1995-04-15T21:13:21.237Z",
-                "updatedAt": "1975-10-18T01:00:48.529Z",
+                "requestedAmount": 7295.579846613436,
+                "termMonths": 4878,
+                "status": "denied",
+                "createdAt": "1986-02-10T08:38:54.442Z",
+                "updatedAt": "1958-11-07T02:20:12.678Z",
                 "underwritingResult": {
                   "applicationId": "string",
                   "status": "completed",
                   "decision": "referred_to_manual",
-                  "riskScore": 88,
-                  "evaluatedAt": "2000-02-25T12:23:17.390Z"
+                  "riskScore": 68,
+                  "evaluatedAt": "1960-11-21T14:31:55.081Z"
                 }
               }
             ],
-            "total": 3778,
-            "limit": 4212,
-            "offset": 9439
+            "total": 8539,
+            "limit": 3482,
+            "offset": 4891
           }
       headers:
         - key: Content-Type

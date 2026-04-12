@@ -31,7 +31,7 @@ examples:
         type: json
         content: |-
           {
-            "status": "healthy",
+            "status": "unhealthy",
             "version": "string",
             "uptime": "string",
             "dependencies": {
